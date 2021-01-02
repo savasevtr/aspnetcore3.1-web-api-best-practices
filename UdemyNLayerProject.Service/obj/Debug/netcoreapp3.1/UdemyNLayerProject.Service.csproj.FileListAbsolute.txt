@@ -1,0 +1,14 @@
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\bin\Debug\netcoreapp3.1\UdemyNLayerProject.Service.deps.json
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\bin\Debug\netcoreapp3.1\UdemyNLayerProject.Service.dll
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\bin\Debug\netcoreapp3.1\UdemyNLayerProject.Service.pdb
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\bin\Debug\netcoreapp3.1\UdemyNLayerProject.Core.dll
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\bin\Debug\netcoreapp3.1\UdemyNLayerProject.Data.dll
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\bin\Debug\netcoreapp3.1\UdemyNLayerProject.Core.pdb
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\bin\Debug\netcoreapp3.1\UdemyNLayerProject.Data.pdb
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\obj\Debug\netcoreapp3.1\UdemyNLayerProject.Service.csprojAssemblyReference.cache
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\obj\Debug\netcoreapp3.1\UdemyNLayerProject.Service.AssemblyInfoInputs.cache
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\obj\Debug\netcoreapp3.1\UdemyNLayerProject.Service.AssemblyInfo.cs
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\obj\Debug\netcoreapp3.1\UdemyNLayerProject.Service.csproj.CoreCompileInputs.cache
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\obj\Debug\netcoreapp3.1\UdemyNLayerProject.Service.csproj.CopyComplete
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\obj\Debug\netcoreapp3.1\UdemyNLayerProject.Service.dll
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.Service\obj\Debug\netcoreapp3.1\UdemyNLayerProject.Service.pdb

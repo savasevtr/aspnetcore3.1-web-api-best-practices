@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UdemyNLayerProject.API.DTOs;
+using UdemyNLayerProject.API.Filters;
 using UdemyNLayerProject.Core.Models;
 using UdemyNLayerProject.Core.Services;
 
@@ -44,6 +45,7 @@ namespace UdemyNLayerProject.API.Controllers
             return Ok(_mapper.Map<ProductWithCategoryDto>(product));
         }
 
+        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
         {

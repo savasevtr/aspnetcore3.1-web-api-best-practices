@@ -65,3 +65,5 @@ C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.API\bin\Debug\net
 C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\SE\source\repos\UdemyNLayerProject\UdemyNLayerProject.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

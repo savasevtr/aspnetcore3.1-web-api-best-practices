@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using UdemyNLayerProject.API.DTOs;
 using UdemyNLayerProject.API.Filters;
@@ -31,12 +29,14 @@ namespace UdemyNLayerProject.API.Controllers
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(await _productService.GetAllAsync()));
         }
 
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(_mapper.Map<ProductDto>(await _productService.GetByIdAsync(id)));
         }
-   
+
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpGet("{id}/category")]
         public async Task<IActionResult> GetWithCategoryByIdAsync(int id)
         {
@@ -57,11 +57,12 @@ namespace UdemyNLayerProject.API.Controllers
         [HttpPut]
         public IActionResult Update(ProductDto productDto)
         {
-            var product = _productService.Update(_mapper.Map<Product>(productDto));
+            _productService.Update(_mapper.Map<Product>(productDto));
 
             return NoContent();
         }
 
+        [ServiceFilter(typeof(NotFoundFilter))]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

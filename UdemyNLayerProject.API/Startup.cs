@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UdemyNLayerProject.API.Extensions;
+using UdemyNLayerProject.API.Filters;
 using UdemyNLayerProject.Core.Repositories;
 using UdemyNLayerProject.Core.Services;
 using UdemyNLayerProject.Core.UnitOfWorks;
@@ -29,6 +31,7 @@ namespace UdemyNLayerProject.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<NotFoundFilter>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -41,6 +44,10 @@ namespace UdemyNLayerProject.API
                     o.MigrationsAssembly("UdemyNLayerProject.Data");
                 });
             });
+
+            //services.AddControllers(o => {
+            //    o.Filters.Add(new ValidationFilter());
+            //});
 
             services.AddControllers();
 
@@ -57,6 +64,8 @@ namespace UdemyNLayerProject.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCustomException();
 
             app.UseRouting();
 

@@ -1,9 +1,6 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using UdemyNLayerProject.Core.Models;
-using UdemyNLayerProject.Core.Services;
+using UdemyNLayerProject.Web.ApiServices;
 using UdemyNLayerProject.Web.DTOs;
 using UdemyNLayerProject.Web.Filters;
 
@@ -11,20 +8,18 @@ namespace UdemyNLayerProject.Web.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryService _categoryService;
-        private readonly IMapper _mapper;
+        private readonly CategoryApiService _categoryApiService;
 
-        public CategoryController(ICategoryService categoryService, IMapper mapper)
+        public CategoryController(CategoryApiService categoryApiService)
         {
-            _categoryService = categoryService;
-            _mapper = mapper;
+            _categoryApiService = categoryApiService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var categories = await _categoryService.GetAllAsync();
+            var categories = await _categoryApiService.GetAllAsync();
 
-            return View(_mapper.Map<IEnumerable<CategoryDto>>(categories));
+            return View(categories);
         }
 
         public IActionResult Create()
@@ -37,7 +32,7 @@ namespace UdemyNLayerProject.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _categoryService.AddAsync(_mapper.Map<Category>(categoryDto));
+                await _categoryApiService.AddAsync(categoryDto);
 
                 return RedirectToAction("Index");
             }
@@ -48,17 +43,17 @@ namespace UdemyNLayerProject.Web.Controllers
         [ServiceFilter(typeof(NotFoundFilter))]
         public async Task<IActionResult> Update(int id)
         {
-            var category = await _categoryService.GetByIdAsync(id);
+            var category = await _categoryApiService.GetByIdAsync(id);
 
-            return View(_mapper.Map<CategoryDto>(category));
+            return View(category);
         }
 
         [HttpPost]
-        public IActionResult Update(CategoryDto categoryDto)
+        public async Task<IActionResult> Update(CategoryDto categoryDto)
         {
             if (ModelState.IsValid)
             {
-                _categoryService.Update(_mapper.Map<Category>(categoryDto));
+                await _categoryApiService.Update(categoryDto);
 
                 return RedirectToAction("Index");
             }
@@ -67,11 +62,9 @@ namespace UdemyNLayerProject.Web.Controllers
         }
 
         [ServiceFilter(typeof(NotFoundFilter))]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var category = _categoryService.GetByIdAsync(id).Result;
-
-            _categoryService.Remove(category);
+            await _categoryApiService.Remove(id);
 
             return RedirectToAction("Index");
         }

@@ -1,17 +1,10 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using UdemyNLayerProject.Core.Repositories;
-using UdemyNLayerProject.Core.Services;
-using UdemyNLayerProject.Core.UnitOfWorks;
-using UdemyNLayerProject.Data.Context;
-using UdemyNLayerProject.Data.Repositories;
-using UdemyNLayerProject.Data.UnitOfWorks;
-using UdemyNLayerProject.Service.Services;
+using System;
+using UdemyNLayerProject.Web.ApiServices;
 using UdemyNLayerProject.Web.Filters;
 
 namespace UdemyNLayerProject.Web
@@ -28,21 +21,12 @@ namespace UdemyNLayerProject.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<NotFoundFilter>();
-            services.AddAutoMapper(typeof(Startup));
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped(typeof(IService<>), typeof(Service<>));
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IProductService, ProductService>();
-            
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddHttpClient<CategoryApiService>(opt =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:db1"].ToString(), o => {
-                    o.MigrationsAssembly("UdemyNLayerProject.Data");
-                });
+                opt.BaseAddress = new Uri(Configuration["baseUrl"].ToString());
             });
+
+            services.AddScoped<NotFoundFilter>();
 
             services.AddControllersWithViews();
         }
